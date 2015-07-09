@@ -35,7 +35,7 @@ $(function() {
 
     update: function(userId, updatedUserName, updatedFirstName, updatedLastName, updatedUserAge) {
       // send PUT request to server to update phrase
-      $.put('/users', )
+      
       // pass phrase object through template and append to view
     },
     
