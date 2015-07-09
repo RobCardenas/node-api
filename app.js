@@ -3,17 +3,23 @@ var bodyParser = require('body-parser');
 var _ = require("underscore");
 var app = express();
 
-// parse application/x-www-form-urlencoded 
-app.use(bodyParser.urlencoded({ extended: false }))
- 
-// parse application/json 
-app.use(bodyParser.json())
+// serve js and css files from public folder
+app.use(express.static(__dirname + '/public'));
 
+// configure bodyParser (for handling data)
+app.use(bodyParser.urlencoded({extended: true}));
+ 
+//pre seeded user data
 var users = [
   {id: 1, username: 'Rob', firstname: 'hell yeah', lastname: 'car', age: 30},
   {id: 2, username: 'Fer', firstname: 'mombo', lastname: 'truck', age: 47}
 ];
 
+//ROUTES
+// root route (serves index.html)
+app.get('/', function (req, res) {
+  res.sendFile(__dirname + '/public/views/index.html');
+});
 
 // users indes
 app.get('/users', function (req, res) {

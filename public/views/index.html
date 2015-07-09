@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<!-- set viewport to device width to allow responsiveness -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Join our mailing list</title>
+		<!-- Bootstrap CDN -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link href='http://fonts.googleapis.com/css?family=Merriweather:400,900italic,300,700' rel='stylesheet' type='text/css'>
+		<!-- custom styles -->
+  		<link type="text/css" rel="stylesheet" href="styles/users.css">
+	</head>
+	<body>
+		<div class="container">
+			<div class="row header-top">
+				<div class="col-md-6 col-md-offset-3">
+					<div class="text-center">
+						<h1>BECOME A MEMBER</h1>
+						<hr>
+						<form id="new_user_id">
+							<div class="form-group">
+								<input type="text" class="form-control" id="user_name" placeholder="Username" autofocus>
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" id="first_name" placeholder="First Name">
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" id="last_name" placeholder="Last Name">
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" id="user_age" placeholder="Age">
+							</div>
+							<div class="form-group">
+								<input type="submit" class="btn btn-teal" value="Submit">
+							</div>
+						</form>
+						<hr>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2">
+					<p>Username</p>
+				</div>
+				<div class="col-md-2">
+					<p>First Name</p>
+				</div>
+				<div class="col-md-2">
+					<p>Last Name</p>
+				</div>
+				<div class="col-md-2">
+					<p>Age</p>
+				</div>
+				<div class="col-md-2">
+					<p>Edit</p>
+				</div>
+				<div class="col-md-2">
+					<p>Delete</p>
+				</div>
+				<div id="user_list"></div>
+			</div>
+		</div>
+		  
+
+	<!-- jquery -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+
+	<!-- bootstrap js -->
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+	<!-- underscore -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+	<!-- custom script -->
+	<script type="text/javascript" src="scripts/users.js"></script>
+
+	<!-- underscore template -->
+	<script type="text/template" id="user-template">
+		<div class="todo-items">
+			<div class="col-md-2">
+				<%= username %> 
+			</div>
+			<div class="col-md-2">
+				<%= firstname %>
+			</div>
+			<div class="col-md-2">
+				<%= lastname %>
+			</div>
+			<div class="col-md-2">
+				<%= age %>
+			</div>
+			<div class="col-md-2">
+				<span class="glyphicon glyphicon-edit" id="edit-button"></span>
+			</div>
+			<div class="col-md-2">
+				<span class="glyphicon glyphicon-remove" id="delete-button"></span>
+			</div>
+		</div>
+	</script>
+
+	</body>
+</html>
