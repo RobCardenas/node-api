@@ -33,10 +33,23 @@ $(function() {
       });
     },
 
-    update: function(userId, updatedUserName, updatedFirstName, updatedLastName, updatedUserAge) {
+    update: function(userId, upUserName, upFirstName, upLastName, upAge) {
       // send PUT request to server to update phrase
-      
-      // pass phrase object through template and append to view
+      $.ajax({
+        type: 'PUT',
+        url: '/users/' + userId,
+        data: {
+          username: upUserName,
+          firstname: upFirstName,
+          lastname: upLastName,
+          age: upAge
+        },
+        success: function(data) {
+          // pass phrase object through template and append to view
+          var $userHtml = $(usersController.template(data));
+          $('#user_' + userId).replaceWith($userHtml);
+        }
+      });
     },
     
     delete: function(phraseId) {
@@ -47,9 +60,21 @@ $(function() {
 
     // add event-handlers to phrases for updating/deleting
     addEventHandlers: function() {
-      // for update: submit event on `.update-phrase` form
-
-      // for delete: click event on `.delete-phrase` button
+      $('#user_list')
+        // for update: submit event on `.update-phrase` form
+        .on('edit-button', '.update-phrase', function(event) {
+          event.preventDefault();
+          var phraseId = $(this).closest('.phrase').attr('data-id');
+          var updatedWord = $(this).find('.updated-word').val();
+          var updatedDefinition = $(this).find('.updated-definition').val();
+          phrasesController.update(phraseId, updatedWord, updatedDefinition);
+        })
+        // for delete: click event on `.delete-phrase` button
+        .on('click', '.delete-phrase', function(event) {
+          event.preventDefault();
+          var phraseId = $(this).closest('.phrase').attr('data-id');
+          phrasesController.delete(phraseId);
+        });
     },
 
     setupView: function() {

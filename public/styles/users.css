@@ -7,26 +7,12 @@ h1 {
 	font-weight: 700;
 }
 
-ol {
-	cursor: pointer;
-	font-family: 'Merriweather', serif;
-	font-size: 1.2em;
-	font-weight: 400;
-	list-style-type: none;
-}
-
-li.item {
-	border-bottom: 1px solid #eee;
-	padding: 10px 0 10px 0;
-}
-
-.glyphicon:hover {
+.glyphicon-remove:hover {
 	color: red;
 }
 
-.complete {
+.glyphicon-edit:hover {
 	color: #53bf6b;
-	text-decoration: line-through;
 }
 
 .btn-teal {
@@ -40,8 +26,4 @@ li.item {
 .form-control:focus {
 	border-color: #53bf6b;
 	box-shadow: inset 0 1px 1px rgba(71, 172, 93, 0.075), 0 0 8px rgba(83, 191, 107, 0.6);
-}
-
-ol#todo_list {
-	text-align: left;
 }
